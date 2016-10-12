@@ -1,0 +1,46 @@
+<?xml version ="1.0" encoding ="UTF-8" ?>
+<definitions name="demo"
+  targetNamespace="http://localhost/demo"
+  xmlns:tns="http://localhost/demo"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+  <message name="DemoRequest">
+    <part name="param1" type="xsd:string" />
+  </message>
+
+  <message name="DemoResponse">
+    <part name="Result" type="xsd:string" />
+  </message>
+
+  <portType name="DemoPortType">
+    <operation name="Demo">
+      <input message="tns:DemoRequest" />
+      <output message="tns:DemoResponse" />
+    </operation>
+  </portType>
+
+  <binding name="DemoBinding" type="tns:DemoPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Demo">
+      <soap:operation soapAction="http://localhost/Demo" />
+      <input>
+        <soap:body use="encoded" namespace="http://localhost/demo"
+          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+      <soap:body use="encoded" namespace="http://localhost/demo"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+
+  <service name="DemoService">
+    <port name="DemoPort" binding="DemoBinding">
+      <soap:address location="http://localhost/service.php" />
+    </port>
+  </service>
+</definitions>

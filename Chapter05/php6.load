@@ -1,0 +1,1 @@
+LoadModule php6_module /usr/lib/apache2/modules/libphp6.so

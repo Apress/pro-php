@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions
+  name="PhoneCompany"
+  targetNamespace="http://localhost/PhoneCompany"
+  xmlns:tns="http://localhost/PhoneCompany"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+>
+
+  <types>
+    <xsd:schema
+      targetNamespace="http://localhost/PhoneCompany"
+      xmlns:tns="http://localhost/PhoneCompany"
+    >
+
+      <xsd:complexType name="CallDetailRecord">
+        <xsd:all>
+          <xsd:element name="StartTime" type="xsd:dateTime" />
+          <xsd:element name="Duration" type="xsd:int" />
+          <xsd:element name="Caller" type="xsd:string" />
+          <xsd:element name="Callee" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+
+      <xsd:complexType name="CallDetailRecordArray">
+        <xsd:complexContent>
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute
+              ref="soapenc:arrayType"
+              wsdl:arrayType="tns:CallDetailRecord[]"
+            />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+
+    </xsd:schema>
+  </types>
+
+  <message name="GetCallDetailRecordsRequest">
+    <part name="Subscriber" type="xsd:string"/>
+  </message>
+
+  <message name="GetCallDetailRecordsResponse">
+    <part name="Result" type="tns:CallDetailRecordArray"/>
+  </message>
+
+  <portType name="PhoneCompanyPort">
+    <operation name="GetCallDetailRecords">
+      <input message="tns:GetCallDetailRecordsRequest"/>
+      <output message="tns:GetCallDetailRecordsResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="PhoneCompanyBinding" type="tns:PhoneCompanyPort">
+    <soap:binding
+      style="rpc"
+      transport="http://schemas.xmlsoap.org/soap/http"
+    />
+    <operation name="GetCallDetailRecords">
+      <soap:operation
+        soapAction="http://localhost/GetCallDetailRecords"/>
+      <input>
+        <soap:body
+          use="encoded"
+          namespace="http://localhost/PhoneCompany"
+          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+        />
+      </input>
+      <output>
+        <soap:body
+          use="encoded"
+          namespace="http://localhost/PhoneCompany"
+          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+        />
+      </output>
+    </operation>
+  </binding>
+
+  <service name="PhoneCompanyService">
+    <port
+      name="PhoneCompanyPort"
+      binding="PhoneCompanyBinding"
+    >
+      <soap:address location="http://localhost/PhoneCompany.php"/>
+    </port>
+  </service>
+</definitions>

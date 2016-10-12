@@ -1,0 +1,15 @@
+<chapter id="chapterid">
+  <chapterinfo>
+    . . .
+  </chapterinfo>
+  <title>Chapter title</title>
+  <subtitle>Exploring chapter title</subtitle>
+  <para>
+    . . .
+  </para>
+  <sect1>
+    <para>
+      . . .
+    </para>
+  </sect1>
+</chapter>

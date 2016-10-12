@@ -1,0 +1,17 @@
+<?php foreach($this->messages as $message) { ?>
+  <p>
+    <strong>ERROR: </span><?php echo $this->escape($message); ?></strong>
+  </p>
+<?php } ?>
+
+<form method="post">
+  <p>Email Address:<br />
+    <input type="text" name="email"/>
+  </p>
+  <p>Password:<br />
+    <input type="password" name="password"/>
+  </p>
+  <p>
+    <input type="submit" name="submit" value="Submit">
+  </p>
+</form>

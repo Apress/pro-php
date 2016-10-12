@@ -1,0 +1,10 @@
+<chapter>
+  <sect1>
+    <title>Section 1 Title</title>
+    <para>Section one lead-in text</para>
+    <sect2>
+      <title>Subsection</title>
+      <para>. . .</para>
+    </sect2>
+  </sect1>
+</chapter>

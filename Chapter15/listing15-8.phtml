@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <table>
+      <thead>
+        <th>ID</th>
+        <th>Name</th>
+      </thead>
+      <tbody>
+        <?php foreach($this->customers as $customer) { ?>
+          <tr>
+            <td><?php echo $customer->customer_id; ?></td>
+            <td><?php echo $customer->name; ?></td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </body>
+</html>

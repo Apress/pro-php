@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<projects>
+  <project name="MyFirstXincProject" interval="60">
+    <modificationsets>
+      <svn directory="/usr/local/www/projects/myfirstrepo" />
+    </modificationsets>
+    <builder
+      type="phing"
+      buildfile="/usr/local/www/projects/myfirstrepo/build.xml"
+      workingdirectory="/usr/local/www/projects/myfirstrepo/"
+      target="try"
+    />
+    <publishers>
+      <email
+        to="user@example.com"
+        subject="Build Failed"
+        message="Someone committed something that doesn't pass unit tests."
+        publishonfailure="true"
+      />
+    </publishers>
+  </project>
+</projects>

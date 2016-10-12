@@ -1,0 +1,11 @@
+</binding>
+
+<service name="PhoneCompanyService">
+  <port
+    name="PhoneCompanyPort"
+    binding="PhoneCompanyBinding"
+  >
+    <soap:address location="https://localhost/PhoneCompany.php"/>
+  </port>
+  </service>
+</definitions>

@@ -1,0 +1,22 @@
+<bookinfo>
+  <title>A title</title>
+  <subtitle>A subtitle</subtitle>
+  <authorgroup>
+    <author>
+      <firstname>Kevin</firstname>
+      <surname>McArthur</surname>
+    </author>
+    <corpauthor>Somecorporation Inc.</corpauthor>
+  </authorgroup>
+  <editor>
+    <firstname>Joe</firstname>
+    <surname>Somebody</surname>
+  </editor>
+  <date>
+    Jan 1, 1970
+  </date>
+  <copyright>
+    <year>2006</year>
+    <holder>Somecorporation Inc.</holder>
+  </copyright>
+</bookinfo>

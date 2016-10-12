@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project name="MyFirstPhingProject" basedir="." default="try">
+
+  <fileset dir="./code" id="codefiles">
+    <include name="**" />
+  </fileset>
+
+  <target name="get">
+    <svnupdate
+      svnpath="file:///usr/local/svn/myfirstrepo"
+      todir="."
+    />
+  </target>
+
+  <target name="test" depends="get">
+    <phpunit haltonfailure="true" printsummary="true">
+      <batchtest>
+        <fileset dir="./tests">
+          <include name="*Test.php" />
+        </fileset>
+      </batchtest>
+    </phpunit>
+  </target>
+
+  <target name="try" depends="test">
+    <copy
+      todir="/usr/local/www/beta.example.com/document_root"
+      overwrite="true"
+    >
+      <fileset refid="codefiles" />
+    </copy>
+  </target>
+
+  <target name="deploy" depends="try">
+    <copy
+      todir="/usr/local/www/www.example.com/document_root"
+      overwrite="true"
+    >
+      <fileset refid="codefiles" />
+    </copy>
+  </target>
+
+</project>

@@ -1,0 +1,10 @@
+<chapter id="mychapter">
+  <title>Chapter Title</title>
+  <sect1 id="firstsection">
+    <title>Section Title</title>
+    <para>Introduction to this section</para>
+    <sect2 id="subsection">
+      <para>Sections may have subsections</para>
+    </sect2>
+  </sect1>
+</chapter>

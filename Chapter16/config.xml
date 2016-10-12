@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<configdata>
+  <production>
+    <domain>some.com</domain>
+    <database>
+      <name>dbname</name>
+      <password>password</password>
+    </database>
+  </production>
+<staging extends="production">
+  <domain>beta.some.com</domain>
+  <database>
+    <name>dbname</name>
+  </staging>
+</configdata>

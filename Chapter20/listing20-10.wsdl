@@ -1,0 +1,46 @@
+<?xml version ='1.0' encoding ='UTF-8' ?>
+<definitions name='Photo'
+  targetNamespace='http://localhost/Photo'
+  xmlns:tns=' http://localhost/Photo'
+  xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+  xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/'
+  xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+  xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+  xmlns='http://schemas.xmlsoap.org/wsdl/'>
+
+<message name='AddPhotoRequest'>
+  <part name='image' type='xsd:base64binary'/>
+</message>
+
+<message name='AddPhotoResponse'>
+  <part name='Result' type='xsd:string'/>
+</message>
+
+<portType name='PhotoPortType'>
+  <operation name='AddPhoto'>
+    <input message='tns:AddPhotoRequest'/>
+    <output message='tns:AddPhotoResponse'/>
+  </operation>
+</portType>
+
+<binding name='PhotoBinding' type='tns:PhotoPortType'>
+  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='AddPhoto'>
+    <soap:operation soapAction='http://localhost/AddPhoto'/>
+    <input>
+      <soap:body use='encoded' namespace='http://localhost/Photo'
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+    </input>
+    <output>
+      <soap:body use='encoded' namespace='http://localhost/Photo'
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+    </output>
+  </operation>
+</binding>
+
+<service name='PhotoService'>
+  <port name='PhotoPort' binding='PhotoBinding'>
+    <soap:address location='http://localhost/photoservice.php'/>
+  </port>
+</service>
+</definitions>

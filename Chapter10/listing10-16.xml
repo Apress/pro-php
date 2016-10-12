@@ -1,0 +1,9 @@
+<library>
+  <book>
+    <name>Pro PHP</name>
+    <author>Kevin McArthur</author>
+  </book>
+  <book>
+    <name>Other Book</name>
+  </book>
+</library>

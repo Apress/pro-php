@@ -1,0 +1,50 @@
+<para>
+  This is a paragraph and can contain many elements.
+  <itemizedlist>
+    <listitem>
+      <para>
+        This is the first element in this list.
+        <footnote>
+          <para>This is a footnote to item 1</para>
+        </footnote>
+      </para>
+    </listitem>
+    <listitem>. . .</listitem>
+  </itemizedlist>
+  <example>
+    <title>An example</title>
+    <programlisting language="php">
+      <![CDATA[<?php
+        echo "hello, world";
+      ?>]]>
+    </programlisting>
+  </example>
+  The code <code language="php">echo "hello, world";</code> outputs
+hello, world to the screen. For more information reference <ulink
+url="http://www.somedomain.com/somefile.ext">Dave Smith's Tutorial</ulink>
+  <citetitle>Dave's Reference</citetitle> describes this as:
+  <blockquote>
+    Material referenced from Dave's Reference.
+  </blockquote>
+  <table>
+    <thead>
+      <row>
+        <entry>Header 1</entry>
+        <entry>Header 2</entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry>Data 1</entry>
+        <entry>Data 2</entry>
+      </row>
+    </tbody>
+  </table>
+  <note>Take note of some point</note>
+  Data between literal tags is for specific data that should be taken literally
+  and never translated. <literal>ObjectName</literal> is responsible for something.
+  The information for x can be found in the Database
+  <database>DatabaseName</database> in the table <database
+  class="table">TableName</database> in the field <database
+  class="field">FieldName</database>.
+</para>
